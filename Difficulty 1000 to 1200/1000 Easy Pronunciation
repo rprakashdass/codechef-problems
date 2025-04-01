@@ -1,0 +1,26 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    auto isVowel = [](char ch){
+        ch = tolower(ch);
+        return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
+    };
+    while(t--){
+        int n;
+        cin >> n;
+        string s;
+        cin >> s;
+        int count = 0;
+        for(char ch: s){
+            if(!isVowel(ch)) count++;
+            else count = 0;
+            if(count == 4) break;
+        }
+        if(count < 4) cout << "YES" << endl;
+        else cout << "NO" << endl;
+    }
+}
